@@ -1,5 +1,9 @@
+#include <Arduino.h>
 #include <SPI.h>
 #include "at86rf2xx.h"
+#include <iostream>
+
+using namespace std;
 
 int received = 0;
 
@@ -7,17 +11,29 @@ int IRQ = 2;
 int RESET = 8;
 int SLP_TR = 7;
 int SEL = 6;
+void at86rf2xx_eventHandler();
+void at86rf2xx_receive_data();
+long t_last = 0;
+long t_curr = 0;
 
 void setup() {
   Serial.begin(115200);
-  at86rf2xx.init(SEL, IRQ, SLP_TR, RESET);
-  at86rf2xx.set_chan(26); // set channel to 26
+  //at86rf2xx.init(SEL, IRQ, SLP_TR, RESET);
+  //at86rf2xx.set_chan(26); // set channel to 26
+  cout << "hello" << endl;
 }
 
 void loop() {
+  t_curr = millis();
+  if( t_curr - t_last > 1000 ) {
+      cout << t_curr / 1000 << endl;
+      t_last = t_curr;
+  }
+  /*
   if (at86rf2xx.events)
     at86rf2xx_eventHandler();
   return;
+  */
 }
 
 void at86rf2xx_eventHandler() {

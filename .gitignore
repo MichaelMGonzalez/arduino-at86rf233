@@ -1,0 +1,4 @@
+*.o
+*.s
+*.sw*
+test_radio

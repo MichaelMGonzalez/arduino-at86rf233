@@ -24,7 +24,7 @@
  * @}
  */
 
-#include <Arduino.h>
+#include <piDuino.h>
 #include <SPI.h>
 
 #include "at86rf2xx.h"

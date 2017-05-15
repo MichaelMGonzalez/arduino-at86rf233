@@ -28,7 +28,7 @@
 #ifndef AT86RF2XX_H_
 #define AT86RF2XX_H_
 
-#include <Arduino.h>
+#include <piDuino.h>
 #include <stdint.h>
 #include "ieee802154.h"
 #include "at86rf2xx-registers.h"
